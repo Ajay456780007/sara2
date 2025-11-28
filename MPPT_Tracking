@@ -1,0 +1,34 @@
+if name=="MPPT_Tracking"
+        
+
+        % ----------- FOLDER LOCATION -----------
+        img_folder = "Results/MPPT_Tracking/";
+        
+        % ----------- IMAGE FILES (CHANGE IF NEEDED) ----------
+        img_files = {
+            "Scenario_1_Subplot.png"
+            "Scenario_2_Subplot.png"
+            "Scenario_3_Subplot.png"
+        };
+        
+        % ----------- LOOP THROUGH IMAGES -----------
+        for i = 1:length(img_files)
+        
+            img_path = fullfile(img_folder, img_files{i});
+            I = imread(img_path);
+        
+            % Display each image individually
+            figure('Visible','on');   % show window normally
+            imshow(I);
+        
+            % Save again (optional overwrite)
+            saveas(gcf, fullfile(img_folder, "Copy_" + img_files{i}));
+        
+            close;  % close figure after saving
+        end
+        
+        disp("All images displayed and re-saved successfully.");
+
+
+
+    end
